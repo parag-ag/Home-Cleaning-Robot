@@ -20,8 +20,8 @@ class rhode():
         GPIO.setup(self.en,GPIO.OUT)
         GPIO.output(self.left1,GPIO.LOW)
         GPIO.output(self.left2,GPIO.LOW)
-        GPIO.setup(self.left1,GPIO.OUT)
-        GPIO.setup(self.left2,GPIO.OUT)
+        GPIO.setup(self.right1,GPIO.OUT)
+        GPIO.setup(self.right2,GPIO.OUT)
         GPIO.output(self.right1,GPIO.LOW)
         GPIO.output(self.right2,GPIO.LOW)
         p=GPIO.PWM(self.en,1000)
@@ -31,45 +31,45 @@ class rhode():
         print("r-right(90) s-stop f-forward b-backward l-left(90) e-exit")
         print("\n")    
 
-    def forward():
+    def forward(self):
         print("forward")
-        GPIO.output(left1,GPIO.HIGH)
-        GPIO.output(left2,GPIO.LOW)
-        GPIO.output(right1,GPIO.HIGH)
-        GPIO.output(right2,GPIO.LOW)
+        GPIO.output(self.left1,GPIO.HIGH)
+        GPIO.output(self.left2,GPIO.LOW)
+        GPIO.output(self.right1,GPIO.HIGH)
+        GPIO.output(self.right2,GPIO.LOW)
         current_dir = 1
     
-    def stop():
+    def stop(self):
         print("stop")
-        GPIO.output(left1,GPIO.LOW)
-        GPIO.output(left2,GPIO.LOW)
-        GPIO.output(right1,GPIO.LOW)
-        GPIO.output(right2,GPIO.LOW)
+        GPIO.output(self.left1,GPIO.LOW)
+        GPIO.output(self.left2,GPIO.LOW)
+        GPIO.output(self.right1,GPIO.LOW)
+        GPIO.output(self.right2,GPIO.LOW)
 
-    def turn_right():
+    def turn_right(self):
         print("turning right")
-        GPIO.output(left1,GPIO.HIGH)
-        GPIO.output(left2,GPIO.LOW)
-        GPIO.output(right1,GPIO.LOW)
-        GPIO.output(right2,GPIO.HIGH)
+        GPIO.output(self.left1,GPIO.HIGH)
+        GPIO.output(self.left2,GPIO.LOW)
+        GPIO.output(self.right1,GPIO.LOW)
+        GPIO.output(self.right2,GPIO.HIGH)
         sleep(1)
         self.stop()
 
-    def turn_left():
+    def turn_left(self):
         print("turning left")
-        GPIO.output(left1,GPIO.LOW)
-        GPIO.output(left2,GPIO.HIGH)
-        GPIO.output(right1,GPIO.HIGH)
-        GPIO.output(right2,GPIO.LOW)
+        GPIO.output(self.left1,GPIO.LOW)
+        GPIO.output(self.left2,GPIO.HIGH)
+        GPIO.output(self.right1,GPIO.HIGH)
+        GPIO.output(self.right2,GPIO.LOW)
         sleep(1)
         self.stop()
 
-    def backward():
+    def backward(self):
         print("backward")
-        GPIO.output(left1,GPIO.LOW)
-        GPIO.output(left2,GPIO.HIGH)
-        GPIO.output(right1,GPIO.LOW)
-        GPIO.output(right2,GPIO.HIGH)
+        GPIO.output(self.left1,GPIO.LOW)
+        GPIO.output(self.left2,GPIO.HIGH)
+        GPIO.output(self.right1,GPIO.LOW)
+        GPIO.output(self.right2,GPIO.HIGH)
         current_dir = 0
 
 
@@ -95,6 +95,7 @@ if __name__ == '__main__':
         elif ins == 'l':
             robot1.turn_left()
         elif ins == 'e':
+            robot1.stop()
             break
         else:
             print('Invalid Instruction Given!!') 
