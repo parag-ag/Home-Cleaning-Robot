@@ -8,17 +8,23 @@ class rhode():
         '''
         Initializing the robot
         '''
+        self.left1 = left1
+        self.left2 = left2
+        self.right1 = right1
+        self.right2 = right2
+        self.en = en
+
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(left1,GPIO.OUT)
-        GPIO.setup(left2,GPIO.OUT)
-        GPIO.setup(en,GPIO.OUT)
-        GPIO.output(left1,GPIO.LOW)
-        GPIO.output(left2,GPIO.LOW)
-        GPIO.setup(left1,GPIO.OUT)
-        GPIO.setup(left2,GPIO.OUT)
-        GPIO.output(right1,GPIO.LOW)
-        GPIO.output(right2,GPIO.LOW)
-        p=GPIO.PWM(en,1000)
+        GPIO.setup(self.left1,GPIO.OUT)
+        GPIO.setup(self.left2,GPIO.OUT)
+        GPIO.setup(self.en,GPIO.OUT)
+        GPIO.output(self.left1,GPIO.LOW)
+        GPIO.output(self.left2,GPIO.LOW)
+        GPIO.setup(self.left1,GPIO.OUT)
+        GPIO.setup(self.left2,GPIO.OUT)
+        GPIO.output(self.right1,GPIO.LOW)
+        GPIO.output(self.right2,GPIO.LOW)
+        p=GPIO.PWM(self.en,1000)
         p.start(25)
         print("\n")
         print("The default speed & direction of motor is LOW & Forward.....")
