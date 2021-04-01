@@ -4,7 +4,7 @@ from time import sleep
 class rhode():
     current_dir = 1             # To store current location
 
-    def __init__(left1, left2, right1, right2, en):
+    def __init__(self, left1, left2, right1, right2, en):
         '''
         Initializing the robot
         '''
