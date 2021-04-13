@@ -1,38 +1,49 @@
 import RPi.GPIO as gpio         
 from time import sleep
-from time import sleep
+import random
+from sensor import distance
+import sys
 
-def start_auto_clean():
-    while(1):
-        print("1")
-        sleep(1)
+def check_front() :
+    dist = distance()
 
-def distance(measure='cm'):
-    gpio.setmode(gpio.BOARD)
-    gpio.setup(12,gpio.OUT)
-    gpio.setup(16,gpio.IN)
+    if dist < 15 :
+        print('too close!',dist)
+        reverse(2)
+        dist = distance()
+        if dist < 15 :
+            print('too close!',dist)
+            turn_left(3)
+            reverse(2)
+            dist = distance()
+            if dist < 15 :
+                print('too close! giving up :(',dist)
+                sys.exit()
 
-    gpio.output(12,FALSE)
-    while gpio.input(16) == 0 :
-        nosig = time.time()
+def autonomy():
+    tf = 0.030
+    x = random.randrange(0,4)
 
-    while gpio.input(16) == 1 :
-        sig = time.time()
+    if x == 0 :
+        for y in range(30) :
+            check_front()
+            forward(tf)
+    elif x == 1 :
+        for y in range(30) :
+            check_front()
+            backward(tf)
+    elif x == 2 :
+        for y in range(30) :
+            check_front()
+            turn_left(tf)
+    elif x == 3 :
+        for y in range(30) :
+            check_front()
+            turn_right(tf)
+            
+def start_auto_clean(robot) :
+    for z in range(10) :
+        autonomy()
 
-    tl = sig - nosig
 
-    if measure == 'cm' :
-        distance = tl / 0.000058
-    elif measure == 'in' :
-        distance = tl / 0.000148 
-    else :
-        print('improper choice of measurement : in or cm')
-        distance = None
-    
-    gpio.cleanup()
-    return distance
-except :
-    distance = 100
-    gpio.cleanup()
-    return distance
 
