@@ -37,7 +37,6 @@ class rhode():
         GPIO.output(self.left2,GPIO.LOW)
         GPIO.output(self.right1,GPIO.HIGH)
         GPIO.output(self.right2,GPIO.LOW)
-        current_dir = 1
     
     def stop(self):
         print("stop")
@@ -71,4 +70,3 @@ class rhode():
         GPIO.output(self.right1,GPIO.LOW)
         GPIO.output(self.right2,GPIO.HIGH)
         sleep(sleep_time)
-        current_dir = 0

@@ -1,5 +1,22 @@
-def start_manual_mode():
-    pass
+def start_manual_mode(robot):
+    print("f - forward, b - backward, s - stop, r - turn-right, l - turn-left, e - exit")
+    while 1:
+        ins = input()
+        if ins == 'f':
+            robot.forward()
+        elif ins == 'b':
+            robot.backward()
+        elif ins == 's':
+            robot.stop()
+        elif ins == 'r':
+            robot.turn_right()
+        elif ins == 'l':
+            robot.turn_left()
+        elif ins == 'e':
+            robot.stop()
+            break
+        else:
+            print('Invalid Instruction Given!!') 
 
 
 # if __name__ == '__main__':
