@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>
+            Home Cleaning Robot
+        </title>
+    </head>
+    <body>
+        <h1>Home Cleaning Robot</h1>
+        <form action = "/main.py" method = "get">
+            <input type = "radio" name = "subject" value = "maths"> 
+            <input type = "submit" value = "Start The Bot">
+        </form>
+        <div id = "bot_initiator">
+            <h3>Initiating the bot</h3>
+        </div>
+        <form type = 'POST'>
+            <div>
+                <input type="radio" id="automatic" name="automatic" value="automatic">Start Automatic Cleaning<br>
+                <input type="radio" id="manual" name="manual" value="manual">Start Manual Cleaning<br>
+            </div>
+        </form>
+        <div id = "automated_cleaning_initiator">
+            <h3>Automatic Cleaning Started...</h3>
+            <button>
+                Stop Cleaning
+            </button>
+        </div>
+        <div id = "manual_cleaning_initiator">
+            <h3>Manual Cleaning Initiated</h3>
+            <form>
+                <button>Up</button>
+                <button>Down</button>
+                <button>Right</button>
+                <button>Left</button>
+            </form>
+        </div>
+    </body>
+</html>
