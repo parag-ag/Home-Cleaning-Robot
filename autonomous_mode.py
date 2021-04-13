@@ -1,5 +1,11 @@
 import RPi.GPIO as gpio         
 from time import sleep
+from time import sleep
+
+def start_auto_clean():
+    while(1):
+        print("1")
+        sleep(1)
 
 def distance(measure='cm'):
     gpio.setmode(gpio.BOARD)
@@ -30,4 +36,3 @@ except :
     gpio.cleanup()
     return distance
 
-#print(distance('cm'))

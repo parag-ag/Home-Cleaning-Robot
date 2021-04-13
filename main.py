@@ -1,36 +1,40 @@
-from robot import rhode
-from autonomous_mode import distance
+# from robot import rhode
+from time import sleep
+from autonomous_mode import start_auto_clean
+from manual_mode import start_manual_mode
+import sys
+import cgi
 
-if __name__ == '__main__':
-    print("Hello world")
-    left1 = 24
-    left2 = 23
-    right1 = 22
-    right2 = 27
-    en = 25
-    sleep_time = 0.5
 
-    robot1 = rhode(left1, left2, right1, right2, en)
-    while 1:
-        ins = input()
-        if ins == 'f':
-            robot1.forward()
-        elif ins == 'b':
-            robot1.backward()
-        elif ins == 's':
-            robot1.stop()
-        elif ins == 'r':
-            robot1.turn_right()
-        elif ins == 'l':
-            robot1.turn_left()
-        elif ins == 'e':
-            robot1.stop()
-            break
-        else:
-            print('Invalid Instruction Given!!') 
+# form = cgi.FieldStorage()
+# searchterm =  form.getvalue('searchbox')            # 'searchbox' is input-name
+# if "start_bot" in form
 
-        curDis = distance('cm')
-        print('curDis is',curDis)
+left1 = 24
+left2 = 23
+right1 = 22
+right2 = 27
+en = 25
 
-        if curDis < 20 :
-            robot1.backward(2)
+print("Home Cleaning Robot")
+print("Press enter to start the robot...")
+input()
+
+print("\nBooting up Rhodes...")
+# robot1 = rhode(left1, left2, right1, right2, en)
+sleep(1)
+print("\nBoot Complete. Select mode of cleaning:")
+print("1. Automatic Cleaning")
+print("2. Manual Cleaning")
+while(1):
+    n = int(input())
+    if n == 1:
+        print("Starting automatic cleaning. Press CTRL+C to stop...")
+        start_auto_clean()
+        break
+    elif n == 2:
+        print("Manual mode selected:")
+        start_manual_mode()
+        break
+    else:
+        print("Wrong choice given. Re-enter your choice: ")
