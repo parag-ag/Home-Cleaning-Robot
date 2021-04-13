@@ -1,3 +1,6 @@
+from robot import rhode
+from autonomous_mode import distance
+
 if __name__ == '__main__':
     print("Hello world")
     left1 = 24
@@ -5,6 +8,7 @@ if __name__ == '__main__':
     right1 = 22
     right2 = 27
     en = 25
+    sleep_time = 0.5
 
     robot1 = rhode(left1, left2, right1, right2, en)
     while 1:
@@ -24,3 +28,9 @@ if __name__ == '__main__':
             break
         else:
             print('Invalid Instruction Given!!') 
+
+        curDis = distance('cm')
+        print('curDis is',curDis)
+
+        if curDis < 20 :
+            robot1.backward(2)

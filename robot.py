@@ -46,28 +46,29 @@ class rhode():
         GPIO.output(self.right1,GPIO.LOW)
         GPIO.output(self.right2,GPIO.LOW)
 
-    def turn_right(self):
+    def turn_right(self, sleep_time):
         print("turning right")
         GPIO.output(self.left1,GPIO.HIGH)
         GPIO.output(self.left2,GPIO.LOW)
         GPIO.output(self.right1,GPIO.LOW)
         GPIO.output(self.right2,GPIO.HIGH)
-        sleep(1)
+        sleep(sleep_time)
         self.stop()
 
-    def turn_left(self):
+    def turn_left(self, sleep_time):
         print("turning left")
         GPIO.output(self.left1,GPIO.LOW)
         GPIO.output(self.left2,GPIO.HIGH)
         GPIO.output(self.right1,GPIO.HIGH)
         GPIO.output(self.right2,GPIO.LOW)
-        sleep(1)
+        sleep(sleep_time)
         self.stop()
 
-    def backward(self):
+    def backward(self, sleep_time):
         print("backward")
         GPIO.output(self.left1,GPIO.LOW)
         GPIO.output(self.left2,GPIO.HIGH)
         GPIO.output(self.right1,GPIO.LOW)
         GPIO.output(self.right2,GPIO.HIGH)
+        sleep(sleep_time)
         current_dir = 0
