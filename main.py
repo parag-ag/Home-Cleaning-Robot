@@ -1,4 +1,4 @@
-# from robot import rhode
+from robot import rhode
 from time import sleep
 from autonomous_mode import start_auto_clean
 from manual_mode import start_manual_mode
@@ -21,8 +21,8 @@ print("Press enter to start the robot...")
 input()
 
 print("\nBooting up Rhodes...")
-robot = 1
-# robot1 = rhode(left1, left2, right1, right2, en)
+# robot = 1
+robot = rhode(left1, left2, right1, right2, en)
 sleep(1)
 print("\nBoot Complete. Select mode of cleaning:")
 print("1. Automatic Cleaning")

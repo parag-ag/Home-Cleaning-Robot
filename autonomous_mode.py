@@ -20,30 +20,30 @@ def check_front() :
                 print('too close! giving up :(',dist)
                 sys.exit()
 
-def autonomy():
-    tf = 0.030
+def autonomy(robot):
+    tf = 3
     x = random.randrange(0,4)
 
     if x == 0 :
         for y in range(30) :
             check_front()
-            forward(tf)
+            robot.forward(tf)
     elif x == 1 :
         for y in range(30) :
             check_front()
-            backward(tf)
+            robot.backward(tf)
     elif x == 2 :
         for y in range(30) :
             check_front()
-            turn_left(tf)
+            robot.turn_left(tf)
     elif x == 3 :
         for y in range(30) :
             check_front()
-            turn_right(tf)
+            robot.turn_right(tf)
             
 def start_auto_clean(robot) :
     for z in range(10) :
-        autonomy()
+        autonomy(robot)
 
 
 

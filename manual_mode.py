@@ -5,13 +5,13 @@ def start_manual_mode(robot):
         if ins == 'f':
             robot.forward()
         elif ins == 'b':
-            robot.backward()
+            robot.backward(1)
         elif ins == 's':
             robot.stop()
         elif ins == 'r':
-            robot.turn_right()
+            robot.turn_right(1)
         elif ins == 'l':
-            robot.turn_left()
+            robot.turn_left(1)
         elif ins == 'e':
             robot.stop()
             break

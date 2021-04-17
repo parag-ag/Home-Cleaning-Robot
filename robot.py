@@ -31,12 +31,13 @@ class rhode():
         print("r-right(90) s-stop f-forward b-backward l-left(90) e-exit")
         print("\n")    
 
-    def forward(self):
+    def forward(self, sleep_time = 1):
         print("forward")
         GPIO.output(self.left1,GPIO.HIGH)
         GPIO.output(self.left2,GPIO.LOW)
         GPIO.output(self.right1,GPIO.HIGH)
         GPIO.output(self.right2,GPIO.LOW)
+        sleep(sleep_time)
     
     def stop(self):
         print("stop")
@@ -45,7 +46,7 @@ class rhode():
         GPIO.output(self.right1,GPIO.LOW)
         GPIO.output(self.right2,GPIO.LOW)
 
-    def turn_right(self, sleep_time):
+    def turn_right(self, sleep_time = 1):
         print("turning right")
         GPIO.output(self.left1,GPIO.HIGH)
         GPIO.output(self.left2,GPIO.LOW)
@@ -54,7 +55,7 @@ class rhode():
         sleep(sleep_time)
         self.stop()
 
-    def turn_left(self, sleep_time):
+    def turn_left(self, sleep_time = 1):
         print("turning left")
         GPIO.output(self.left1,GPIO.LOW)
         GPIO.output(self.left2,GPIO.HIGH)
@@ -63,7 +64,7 @@ class rhode():
         sleep(sleep_time)
         self.stop()
 
-    def backward(self, sleep_time):
+    def backward(self, sleep_time = 1):
         print("backward")
         GPIO.output(self.left1,GPIO.LOW)
         GPIO.output(self.left2,GPIO.HIGH)
