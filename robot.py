@@ -4,7 +4,7 @@ from time import sleep
 class rhode():
     current_dir = 1             # To store current location
 
-    def __init__(self, left1, left2, right1, right2, en):
+    def __init__(self, left1, left2, right1, right2, en, clean_pin):
         '''
         Initializing the robot
         '''
@@ -13,8 +13,12 @@ class rhode():
         self.right1 = right1
         self.right2 = right2
         self.en = en
+        self.clean_pin = clean_pin
 
         GPIO.setmode(GPIO.BCM)
+        GPIO.setup(in1,GPIO.OUT)
+        GPIO.output(in1, GPIO.LOW)
+
         GPIO.setup(self.left1,GPIO.OUT)
         GPIO.setup(self.left2,GPIO.OUT)
         GPIO.setup(self.en,GPIO.OUT)

@@ -42,7 +42,7 @@ def autonomy(robot):
             robot.turn_right(tf)
             
 def start_auto_clean(robot) :
-    for z in range(10) :
+    while True :
         autonomy(robot)
 
 
