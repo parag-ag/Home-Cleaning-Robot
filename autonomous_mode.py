@@ -21,25 +21,33 @@ def check_front() :
                 sys.exit()
 
 def autonomy(robot):
-    tf = 3
-    x = random.randrange(0,4)
+    # tf = 3
+    # x = random.randrange(0,4)
 
-    if x == 0 :
-        for y in range(30) :
-            check_front()
-            robot.forward(tf)
-    elif x == 1 :
-        for y in range(30) :
-            check_front()
-            robot.backward(tf)
-    elif x == 2 :
-        for y in range(30) :
-            check_front()
-            robot.turn_left(tf)
-    elif x == 3 :
-        for y in range(30) :
-            check_front()
-            robot.turn_right(tf)
+    # if x == 0 :
+    #     for y in range(30) :
+    #         check_front()
+    #         robot.forward(tf)
+    # elif x == 1 :
+    #     for y in range(30) :
+    #         check_front()
+    #         robot.backward(tf)
+    # elif x == 2 :
+    #     for y in range(30) :
+    #         check_front()
+    #         robot.turn_left(tf)
+    # elif x == 3 :
+    #     for y in range(30) :
+    #         check_front()
+    #         robot.turn_right(tf)
+    tf = 3
+    x = random.randrange(0, 100) * 0.05
+    dist = distance()
+    if dist > 15:
+        robot.forward(tf)
+    else:
+        robot.turn_left(x)
+
             
 def start_auto_clean(robot) :
     while True :
