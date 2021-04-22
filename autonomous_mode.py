@@ -51,7 +51,10 @@ def autonomy(robot):
             
 def start_auto_clean(robot) :
     while True :
-        autonomy(robot)
+        try:
+            autonomy(robot)
+        except KeyboardInterrupt:
+            pass
 
 
 

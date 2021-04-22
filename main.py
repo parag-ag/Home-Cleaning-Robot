@@ -9,7 +9,8 @@ left1 = 24
 left2 = 23
 right1 = 22
 right2 = 27
-en = 25
+en_left = 25
+en_right = 26
 clean_pin = 21
 
 print("Home Cleaning Robot")
@@ -17,7 +18,7 @@ print("Press enter to start the robot...")
 input()
 
 print("\nBooting up Rhodes...")
-robot = rhode(left1, left2, right1, right2, en, clean_pin)
+robot = rhode(left1, left2, right1, right2, en_left, en_right, clean_pin)
 sleep(1)
 print("\nBoot Complete. Select mode of cleaning:")
 print("1. Automatic Cleaning")
