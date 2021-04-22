@@ -6,12 +6,12 @@ def distance(measure='cm'):
     gpio.setup(12,gpio.OUT)
     gpio.setup(16,gpio.IN)
 
-    gpio.output(12,False)
+    gpio.output(12,True)
     try:
         while gpio.input(16) == 0 :
             nosig = time.time()
 
-        while gpio.input(36) == 1 :
+        while gpio.input(16) == 1 :
             sig = time.time()
 
         tl = sig - nosig
