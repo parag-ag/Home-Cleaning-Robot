@@ -16,8 +16,8 @@ class rhode():
         self.clean_pin = clean_pin
 
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(in1,GPIO.OUT)
-        GPIO.output(in1, GPIO.LOW)
+        GPIO.setup(self.clean_pin,GPIO.OUT)
+        GPIO.output(self.clean_pin, GPIO.LOW)
 
         GPIO.setup(self.left1,GPIO.OUT)
         GPIO.setup(self.left2,GPIO.OUT)
