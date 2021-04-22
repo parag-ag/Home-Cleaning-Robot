@@ -43,6 +43,7 @@ def autonomy(robot):
     tf = 3
     x = random.randrange(0, 100) * 0.05
     dist = distance()
+    print(dist)
     if dist > 15:
         robot.forward(tf)
     else:

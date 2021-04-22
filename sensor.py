@@ -3,12 +3,12 @@ from time import sleep
 
 def distance(measure='cm'):
     gpio.setmode(gpio.BCM)
-    gpio.setup(32,gpio.OUT)
-    gpio.setup(36,gpio.IN)
+    gpio.setup(12,gpio.OUT)
+    gpio.setup(16,gpio.IN)
 
-    gpio.output(32,False)
+    gpio.output(12,False)
     try:
-        while gpio.input(36) == 0 :
+        while gpio.input(16) == 0 :
             nosig = time.time()
 
         while gpio.input(36) == 1 :
