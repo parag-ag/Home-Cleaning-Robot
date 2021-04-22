@@ -13,6 +13,7 @@ def start_manual_mode(robot):
         elif ins == 'l':
             robot.turn_left(1)
         elif ins == 'e':
+            robot.stop_cleaning()
             robot.stop()
             break
         else:

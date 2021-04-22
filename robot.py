@@ -79,3 +79,7 @@ class rhode():
         GPIO.output(self.right1,GPIO.LOW)
         GPIO.output(self.right2,GPIO.HIGH)
         sleep(sleep_time)
+
+    def stop_cleaning(self):
+        print("Stopped Cleaning!!")
+        GPIO.output(self.clean_pin, GPIO.HIGH)
